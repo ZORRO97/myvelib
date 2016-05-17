@@ -18,6 +18,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var bikeTableView:UITableView!
     @IBOutlet var pageButton:UIButton!
     @IBOutlet var explicationLabel:UILabel!
+    @IBOutlet var compteurLabel: UILabel!
+    @IBOutlet var progressView: UIProgressView!
     
     var refreshControl: UIRefreshControl!
     var pageIndex:ScreenType = .Home
@@ -78,8 +80,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         if let myStationIds = getStationsIds(pageIndex) {
             stationIds = myStationIds
             startIndicator()
-          //  persistStations(myStationIds, pageIndex: pageIndex)
-            getStationsInfoNew (myStationIds) { (stationsReceived,allStations) in
+            // persistStations(myStationIds, pageIndex: pageIndex)
+            getStationsInfoNew (self, stationIds: myStationIds) { (stationsReceived,allStations) in
                 
                 NSLog("received from getStationsInfo: \(stationsReceived)")
                 self.velibStations = stationsReceived
@@ -147,7 +149,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             
             // lancer la requete pour obtenir les stations et afficher les stations les plus proches
             // en utilisant getClosestStations
-            getStationsInfoNew ([Int]()) { (stationsReceived,allStations) in
+            getStationsInfoNew (self,stationIds: [Int]()) { (stationsReceived,allStations) in
                 
                 
                 self.allStations = allStations

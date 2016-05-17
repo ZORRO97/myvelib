@@ -77,7 +77,7 @@ class Pin: NSObject, MKAnnotation {
 }
 
 // récupérer les infos de toutes les stations demandées d'un coup
-func getStationsInfoNew(stationIds:[Int], completionHandler: (stations: [VelibStation],allStations :[VelibStation])->()){
+func getStationsInfoNew(vc : MainViewController?, stationIds:[Int], completionHandler: (stations: [VelibStation],allStations :[VelibStation])->()){
     // URL spécifique de DECAUD
     let urlString = "\(APIURL)/stations?contract=\(APIContract)&apiKey=\(APIKey)"
     var output = [VelibStation]()
@@ -92,8 +92,23 @@ func getStationsInfoNew(stationIds:[Int], completionHandler: (stations: [VelibSt
                 
                 
                 let json = JSON(data: data!) // tableau de json
-                
+                let myQueue = dispatch_queue_create("myQueue", nil)
+                dispatch_async(myQueue, {
+                    var compteur = 0
+                    var ratio = 0.0
                 for index in 0..<json.count {  // ouvre le for
+                    
+                    compteur += 1
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        // mettre le code de la main thread ici
+                        if vc != nil {
+                            ratio = Double(compteur)/Double(json.count)
+                            vc!.compteurLabel.text = "\(round(ratio*10000)/100) %"
+                            vc!.progressView.progress = Float(ratio)
+                        }
+                    })
                     
                     var numberStation = 0
                     if let number_station = json[index]["number"].number { // test number
@@ -112,7 +127,7 @@ func getStationsInfoNew(stationIds:[Int], completionHandler: (stations: [VelibSt
                                     output.append(myStation)
                                 }
                                 allStations.append(myStation)
-                                //self.bikeTableView.reloadData()
+                                
                             } else {
                                 print("probleme json avec autres données \(json[index])")
                             }
@@ -121,8 +136,17 @@ func getStationsInfoNew(stationIds:[Int], completionHandler: (stations: [VelibSt
                         print("probleme avec \(json[index])")
                     }
                     
-                }
-                completionHandler(stations: output, allStations: allStations)
+                } // fin du for
+                
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    // mettre le code de la main thread ici
+                    completionHandler(stations: output, allStations: allStations)
+                })
+                    
+                }) // fin dispatch
+                
             } else {
                 NSLog("error in GetSimpleSation=\(error)")
             }

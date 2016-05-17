@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KNA-fX-6ad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KNA-fX-6ad">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -59,12 +60,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHP-fD-cqA">
-                                <rect key="frame" x="116" y="30" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFb-00-6kt">
                                 <rect key="frame" x="138" y="86" width="45" height="45"/>
                                 <constraints>
@@ -238,6 +233,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPI-v3-9IR">
+                                <rect key="frame" x="228" y="98" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naG-B2-Eht">
+                                <rect key="frame" x="80" y="71" width="160" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Looks good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHP-fD-cqA">
+                                <rect key="frame" x="116" y="28" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0018043048986863819" green="0.77936845549738221" blue="0.0074317408117830427" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -245,18 +255,22 @@
                                 <variation key="heightClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="Y3d-K7-xGf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3wu-Nz-0zk"/>
+                            <constraint firstItem="naG-B2-Eht" firstAttribute="top" secondItem="gHP-fD-cqA" secondAttribute="bottom" constant="20" id="5B6-uW-2O4"/>
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="top" secondItem="IFb-00-6kt" secondAttribute="bottom" constant="29" id="8dD-CL-WlP"/>
                             <constraint firstItem="Y3d-K7-xGf" firstAttribute="top" secondItem="ABi-BE-E1L" secondAttribute="bottom" constant="18" id="8jQ-Dt-Fcw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y3d-K7-xGf" secondAttribute="trailing" constant="40" id="9rS-so-3oi"/>
                             <constraint firstItem="IFb-00-6kt" firstAttribute="top" secondItem="gHP-fD-cqA" secondAttribute="bottom" constant="35" id="Ccu-oE-Nno"/>
+                            <constraint firstItem="rPI-v3-9IR" firstAttribute="centerY" secondItem="IFb-00-6kt" secondAttribute="centerY" id="E25-Tx-5zV"/>
                             <constraint firstItem="b3B-L0-yNO" firstAttribute="leading" secondItem="IFb-00-6kt" secondAttribute="trailing" constant="25" id="EOM-N3-tzZ"/>
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="top" secondItem="IFb-00-6kt" secondAttribute="bottom" constant="29" id="G4p-YT-B3M"/>
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L9G-02-360"/>
+                            <constraint firstItem="naG-B2-Eht" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Lra-9O-VQz"/>
                             <constraint firstItem="IFb-00-6kt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PCO-Jn-rdw">
                                 <variation key="heightClass=compact" constant="200"/>
                             </constraint>
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PJB-rR-nt3"/>
                             <constraint firstItem="b3B-L0-yNO" firstAttribute="centerY" secondItem="IFb-00-6kt" secondAttribute="centerY" id="PQB-8K-V5V"/>
+                            <constraint firstItem="rPI-v3-9IR" firstAttribute="leading" secondItem="IFb-00-6kt" secondAttribute="trailing" constant="45" id="QDE-18-d5V"/>
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Wub-Cr-LZA"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ABi-BE-E1L" secondAttribute="bottom" constant="20" id="ZhH-BG-qBF"/>
                             <constraint firstItem="Y3d-K7-xGf" firstAttribute="top" secondItem="OlE-9a-P1Y" secondAttribute="bottom" id="cQu-IH-amL"/>
@@ -270,6 +284,7 @@
                             <constraint firstItem="ABi-BE-E1L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="lxX-h5-c8r"/>
                             <constraint firstItem="Y3d-K7-xGf" firstAttribute="top" secondItem="ABi-BE-E1L" secondAttribute="bottom" constant="18" id="mC0-D4-dRs"/>
                             <constraint firstItem="Y3d-K7-xGf" firstAttribute="top" secondItem="ABi-BE-E1L" secondAttribute="bottom" constant="20" id="oFR-Gd-yww"/>
+                            <constraint firstItem="naG-B2-Eht" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rDy-lf-VOF"/>
                             <constraint firstItem="OlE-9a-P1Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v5O-Xz-Y1e"/>
                             <constraint firstItem="gHP-fD-cqA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="xaW-bP-Unn">
                                 <variation key="heightClass=compact" constant="75"/>
@@ -319,8 +334,10 @@
                     <connections>
                         <outlet property="activityIndicator" destination="b3B-L0-yNO" id="5l0-hW-nRp"/>
                         <outlet property="bikeTableView" destination="ABi-BE-E1L" id="Yt6-j9-3ko"/>
+                        <outlet property="compteurLabel" destination="rPI-v3-9IR" id="a7w-ys-NLb"/>
                         <outlet property="explicationLabel" destination="OlE-9a-P1Y" id="o1y-hV-LXP"/>
                         <outlet property="pageButton" destination="IFb-00-6kt" id="3Vx-ZH-OPb"/>
+                        <outlet property="progressView" destination="naG-B2-Eht" id="fFV-Kb-ECf"/>
                         <segue destination="ePC-9s-m4g" kind="presentation" identifier="tomap" modalTransitionStyle="crossDissolve" id="qt1-Vj-pSY"/>
                     </connections>
                 </viewController>
